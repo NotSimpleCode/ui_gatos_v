@@ -9,5 +9,5 @@ import { ProfileButtonComponent } from './shared/profile/button/profile-button.c
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'ui_gatos';
+  title = 'Hello, Karem Johana and XpertGroup';
 }
