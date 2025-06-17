@@ -1,3 +1,29 @@
+.back-btn {
+  background: #f3f4f6;
+  color: #222;
+  border: 1px solid #ddd;
+  padding: 0.5rem 1.2rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background 0.2s, border 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.back-btn:hover {
+  background: #e5e7eb;
+  border-color: #bbb;
+}
+
+@media (max-width: 600px) {
+  .back-btn {
+    width: 100%;
+    font-size: 0.98rem;
+    padding: 0.6rem 0;
+  }
+}
+
 .filter-container {
   display: flex;
   flex-wrap: wrap;

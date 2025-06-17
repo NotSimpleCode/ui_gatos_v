@@ -1,3 +1,4 @@
+<button class="back-btn" (click)="goBack()">Volver atrás</button>
 <div class="filter-container">
   <label for="filter">Filtrar por nombre:</label>
   <input id="filter" type="text" [(ngModel)]="filterText" placeholder="Buscar raza..." (keydown.enter)="onSearch()"/>
