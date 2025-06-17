@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CatsService } from '../../core/services/cats.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { CatBreed } from '../../core/model/cats-model';
 
 @Component({
   standalone: true,
@@ -11,14 +12,15 @@ import { Router } from '@angular/router';
   imports: [CommonModule],
 })
 export class BreedsSelectorComponent implements OnInit {
-  breeds: any[] = [];
-  selectedBreed: any = null;
+  breeds: CatBreed[] = [];
+  selectedBreed: CatBreed | null = null;
   images: any[] = [];
 
   constructor(private readonly catsService: CatsService, private readonly router: Router) {}
 
   ngOnInit() {
     this.catsService.getBreeds().subscribe(data => this.breeds = data);
+    console.log('Breeds:', this.breeds);
   }
 
   onBreedChange(event: Event) {

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
+import { CatBreed } from '../model/cats-model';
 
 @Injectable({ providedIn: 'root' })
 export class CatsService {
@@ -10,15 +11,15 @@ export class CatsService {
   constructor(private readonly http: HttpClient) {}
 
   getBreeds() {
-    return this.http.get<any[]>(`${this.apiUrl}/breeds`);
+    return this.http.get<CatBreed[]>(`${this.apiUrl}/breeds`);
   }
 
   searchBreeds(query: string) {
-    return this.http.get<any[]>(`${this.apiUrl}/breeds/search?q=${encodeURIComponent(query)}`);
+    return this.http.get<CatBreed[]>(`${this.apiUrl}/breeds/search?q=${encodeURIComponent(query)}`);
   }
 
   getBreedById(breedId: string) {
-    return this.http.get<any>(`${this.apiUrl}/breeds/${breedId}`);
+    return this.http.get<CatBreed>(`${this.apiUrl}/breeds/${breedId}`);
   }
 
   getImagesByBreedId(breedId: string) {

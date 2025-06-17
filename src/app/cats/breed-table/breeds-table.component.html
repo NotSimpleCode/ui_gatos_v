@@ -16,10 +16,10 @@
   </thead>
   <tbody>
     <tr *ngFor="let breed of breeds | filterBreeds:searchText">
-      <td>{{ breed.name }}</td>
-      <td>{{ breed.origin }}</td>
-      <td>{{ breed.weight?.metric }} kg</td>
-      <td>{{ breed.description }}</td>
+      <td>{{ breed.breed_name }}</td>
+      <td>{{ breed.breed_origin }}</td>
+      <td>{{ breed.breed_weight }} kg</td>
+      <td>{{ breed.breed_description }}</td>
     </tr>
   </tbody>
 </table>
