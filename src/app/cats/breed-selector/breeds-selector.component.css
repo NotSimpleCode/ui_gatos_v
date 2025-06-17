@@ -1,0 +1,64 @@
+:host {
+  display: block;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+select, button {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0 1rem 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  background: #fafafa;
+  transition: border 0.2s;
+}
+
+select:focus, button:focus {
+  border-color: #888;
+  outline: none;
+}
+
+button {
+  background: #222;
+  color: #fff;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+button:hover {
+  background: #444;
+}
+
+h2 {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  margin: 1rem 0;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+
+@media (max-width: 600px) {
+  :host {
+    padding: 1rem;
+    max-width: 100%;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+}

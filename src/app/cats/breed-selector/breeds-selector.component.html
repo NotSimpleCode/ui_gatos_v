@@ -1,0 +1,15 @@
+<div>
+  <label for="breed">Selecciona una raza:</label>
+  <select id="breed" (change)="onBreedChange($event)">
+    <option *ngFor="let breed of breeds" [value]="breed.id">{{ breed.name }}</option>
+  </select>
+  <button (click)="goToTable()">Ver en tabla</button>
+</div>
+
+<div *ngIf="selectedBreed">
+  <h2>{{ selectedBreed.name }}</h2>
+  <p>{{ selectedBreed.description }}</p>
+  <div *ngIf="images.length > 0">
+    <img [src]="images[0].url" alt="{{selectedBreed.name}}" style="max-width: 400px;">
+  </div>
+</div>

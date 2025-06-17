@@ -1,0 +1,10 @@
+<div class="profile-btn-container">
+  <button *ngIf="isLoggedIn; else loginBtn" (click)="goToProfile()" aria-label="Perfil">
+    <span class="icon">👤</span> Perfil
+  </button>
+  <ng-template #loginBtn>
+    <button (click)="goToLogin()" aria-label="Iniciar sesión">
+      <span class="icon">🔑</span> Iniciar sesión
+    </button>
+  </ng-template>
+</div>

@@ -1,0 +1,24 @@
+<div class="filter-container">
+  <label for="filter">Filtrar por nombre:</label>
+  <input id="filter" type="text" [(ngModel)]="filterText" placeholder="Buscar raza..." (keydown.enter)="onSearch()"/>
+  <button (click)="onSearch()">Buscar</button>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Origen</th>
+      <th>Peso</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let breed of breeds | filterBreeds:searchText">
+      <td>{{ breed.name }}</td>
+      <td>{{ breed.origin }}</td>
+      <td>{{ breed.weight?.metric }} kg</td>
+      <td>{{ breed.description }}</td>
+    </tr>
+  </tbody>
+</table>
