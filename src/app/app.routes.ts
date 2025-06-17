@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { LoggedGuard } from './core/guards/logged.guard';
 
 export const routes: Routes = [
     {
@@ -8,5 +9,10 @@ export const routes: Routes = [
     {
         path: 'auth',
         loadChildren: () => import('./auth/auth.routes').then(m => m.AUTH_ROUTES)
+    },
+    {
+        path: 'profile',
+        loadChildren: () => import('./profile/profile.routes').then(m => m.PROFILE_ROUTES),
+        canActivate: [LoggedGuard]
     }
 ];

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ProfileButtonComponent } from './shared/profile/profile-button.component';
+import { ProfileButtonComponent } from './shared/profile/button/profile-button.component';
 
 @Component({
   selector: 'app-root',

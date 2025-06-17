@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { UserService } from '../../core/services/user.service';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   standalone: true,
@@ -15,8 +17,18 @@ export class RegisterComponent {
   password = '';
   email = '';
 
+  constructor(private readonly userService: UserService) {}
+
   onRegister() {
-    
-    console.log('Registro:', this.username, this.password, this.email);
+    this.userService.register(this.username, this.password, this.email).subscribe({
+      next: (response: any) => {
+        console.log('Registro exitoso:', response);
+        alert('Registro exitoso!');
+      },
+      error: (error: any) => {
+        console.error('Error en el registro:', error);
+        alert('Error en el registro: ' + error.message);
+      }
+    });
   }
 }

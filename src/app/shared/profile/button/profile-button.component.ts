@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../../../core/services/auth.service';
+import { using } from 'rxjs';
 
 @Component({
   standalone: true,
@@ -10,11 +12,14 @@ import { Router } from '@angular/router';
   imports: [CommonModule]
 })
 export class ProfileButtonComponent {
-  get isLoggedIn(): boolean {
-    return !!localStorage.getItem('token');
-  }
 
-  constructor(private readonly router: Router) {}
+  private readonly auth = new AuthService();
+  constructor(private readonly router: Router) { }
+
+  get isLoggedIn(): boolean {
+      const user = this.auth.getUser();
+      return user !== null;
+  }
 
   goToProfile() {
     this.router.navigate(['/profile']);
