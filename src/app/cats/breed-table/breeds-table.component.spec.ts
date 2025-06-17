@@ -14,7 +14,16 @@ describe('BreedsTableComponent', () => {
   beforeEach(async () => {
     catsServiceSpy = jasmine.createSpyObj('CatsService', ['getBreeds']);
     catsServiceSpy.getBreeds.and.returnValue(of([
-      { name: 'Persa', origin: 'Irán', weight: { metric: '3-5' }, description: 'Pelaje largo' }
+      {
+        breed_id: 'persa',
+        breed_name: 'Persa',
+        breed_description: 'Pelaje largo',
+        breed_origin: 'Irán',
+        weight: { metric: '3-5' },
+        name: 'Persa',
+        origin: 'Irán',
+        description: 'Pelaje largo'
+      }
     ]));
 
     await TestBed.configureTestingModule({

@@ -20,10 +20,37 @@ describe('BreedsSelectorComponent', () => {
     routerSpy = jasmine.createSpyObj('Router', ['navigate']);
 
     catsServiceSpy.getBreeds.and.returnValue(of([
-      { id: 'abys', name: 'Abyssinian' },
-      { id: 'beng', name: 'Bengal' }
+      {
+        breed_id: 'abys',
+        breed_name: 'Abyssinian',
+        breed_description: 'Abyssinian description',
+        breed_origin: 'Ethiopia',
+        name: 'Abyssinian',
+        id: 'abys',
+        description: 'Abyssinian description',
+        origin: 'Ethiopia'
+      },
+      {
+        breed_id: 'beng',
+        breed_name: 'Bengal',
+        breed_description: 'Bengal description',
+        breed_origin: 'USA',
+        name: 'Bengal',
+        id: 'beng',
+        description: 'Bengal description',
+        origin: 'USA'
+      }
     ]));
-    catsServiceSpy.getBreedById.and.returnValue(of({ id: 'abys', name: 'Abyssinian' }));
+    catsServiceSpy.getBreedById.and.returnValue(of({
+      breed_id: 'abys',
+      breed_name: 'Abyssinian',
+      breed_description: 'Abyssinian description',
+      breed_origin: 'Ethiopia',
+      name: 'Abyssinian',
+      id: 'abys',
+      description: 'Abyssinian description',
+      origin: 'Ethiopia'
+    }));
     catsServiceSpy.getImagesByBreedId.and.returnValue(of([{ url: 'img1.jpg' }, { url: 'img2.jpg' }]));
 
     await TestBed.configureTestingModule({
@@ -45,7 +72,7 @@ describe('BreedsSelectorComponent', () => {
 
   it('debe cargar las razas al inicializar', () => {
     expect(component.breeds.length).toBe(2);
-    expect(component.breeds[0].name).toBe('Abyssinian');
+    expect(component.breeds[0].breed_name).toBe('Abyssinian');
   });
 
   it('debe actualizar selectedBreed e images al cambiar de raza', () => {
